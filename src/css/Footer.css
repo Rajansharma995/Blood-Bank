@@ -1,0 +1,15 @@
+.footer{
+    background-color: transparent;
+    align-items: center;
+     vertical-align: center;
+     width: 100%;
+     margin-top: 21em;
+     height: 40px;
+     padding-top: 18px;
+}
+.footer a{
+    align-self: flex-end;
+    margin-left: 40px;
+    
+
+}
