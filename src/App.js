@@ -22,7 +22,7 @@ import Giveblood from './component/layout/Giveblood';
 // import SearchClass from './component/bloodbank/SearchClass';
 
 function App(){
-  
+  const token = localStorage.getItem('token');
   return(
     <div className='App'>
         <Navbar />
@@ -43,8 +43,7 @@ function App(){
       <Route exact path='/login/emp/hr' element={<Handelrequest/>}/>
       {/* <Route exact path='/request' element={<RequestClass/>}/> */}
       {/* <Route exact path='/sclass' element={<SearchClass/>}/> */}
-
-        <Route exact path='/request' element={<Request/>}/>
+                <Route exact path='/request' element={<Request/>}/>
         <Route exact path='/aboutus' element={<Aboutus/>}/>
         <Route exact path='/giveblood' element={<Giveblood/>}/>
 

@@ -15,7 +15,7 @@
   
   .request input {
     margin: 1em;
-    width: 150px;
+    width: 200px;
     height: 50px;
     outline: none;
     font-size: 20px;
@@ -24,7 +24,7 @@
   }
   .request select {
     margin-top: 2em;
-    width: 150px;
+    width: 200px;
     display: flex;
     justify-content: right;
     align-self: center;
