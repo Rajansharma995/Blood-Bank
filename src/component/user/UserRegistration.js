@@ -1,11 +1,12 @@
 import React, {useState} from "react";
+// import{axios} from "axios";
 
 import { useNavigate } from "react-router-dom";
 
 import "../../css/Register.css";
 
 const UserRegistration = () => {
-    const [userUsername, setuserUsername]= useState("");
+    const [userUserName, setuserUserName]= useState("");
     const [userPassword, setuserPassword]= useState("");
     const [userFName, setuserFName]= useState("");
     const [userMail, setuserMail]= useState("");
@@ -14,11 +15,58 @@ const UserRegistration = () => {
     const [userGender, setuserGender]= useState("");
     const [userBloodGroup,setuserBloodGroup]= useState("");
     const [userAge, setuserAge]= useState("");
+    const[userConfirmPassword, setuserConfirmPassword]=useState('');
+  
+  
+    const navigate= useNavigate();
+//  const navigatetologin = () => {
+//   navigate ("/login/usr");
+//    }
 
-   const navigate= useNavigate();
- const navigatetologin = () => {
-  navigate ("/login/usr");
-   }
+
+        const UserRegistrationsubmit=(e)=>{
+          e.preventDefault();
+          const body ={
+            name: userFName,
+            userAge: userAge,
+            userGender: userGender,
+            userBloodGroup: userBloodGroup,
+            userPhonenumber: userPhonenumber,
+            email: userMail,
+            userPlace: userPlace,
+            userUserName: userUserName,
+            password: userPassword,
+            password2: userConfirmPassword,
+               }
+          const requestOptions = {
+            method: 'POST',
+            headers: {
+              'content-type':'application/json', 
+              'Accept':'application/json',
+            }, 
+            body: JSON.stringify(body)
+          }
+          fetch('http://127.0.0.1:8000/api/register/',requestOptions).then(function(response){
+        if(response.status ===201) {
+          return response.json(); 
+        }
+        alert('please fill the required parts')
+      }).then((value) => {
+        if(value) {
+          const access_token = value.token.access; 
+          console.log(access_token); 
+          navigate ("/login/usr/");
+        }
+      }).catch((err) => {
+        console.log(err); 
+        
+      }
+      )
+        };
+    
+    
+       
+
   
 return(
     <div className="User-register">
@@ -88,24 +136,34 @@ return(
                 required
                 />
                   <input
-                name="userUsername"
+                name="userUserName"
                 type="text"
                 placeholder="Username"
                 onChange={(e)=> {
-                    setuserUsername(e.target.value);}
+                    setuserUserName(e.target.value);}
                 }
                 required
                 />
                   <input
                 name="userPassword"
-                type="text"
+                type="password"
                 placeholder="Password"
                 onChange={(e)=> {
                     setuserPassword(e.target.value);}
                 }
                 required
                 />
-                  <button onClick={navigatetologin} >Register</button>
+                <input
+                  name="confirmpassword"
+                  type="password"
+                  placeholder="ConfirmPassword"
+                  onChange={(e)=>{
+                    setuserConfirmPassword(e.target.value);
+                  }}
+                  required
+                  />
+                  
+                  <button onClick={UserRegistrationsubmit} type="submit" >Register</button>
         </form>
       
 

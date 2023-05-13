@@ -1,29 +1,51 @@
-import React from "react";
-import { useState } from "react";
+import React, {useState} from "react";
+// import { Axios } from "axios";
 import '../../css/Employeelog.css';
-// import { Navigate, useNavigate } from "react-router-dom";
+// import Axios from "axois";
+import { useNavigate } from "react-router-dom";
 const EmployeeLogin =() => {
     const[empUserName, setempUserName]= useState("");
     const[empPassword, setempPassword]=useState("");
 
-    // const navigate=useNavigate();
+    const navigate=useNavigate();
     // const Emplog=()=>{
     //     navigate('/login/emp/dashboard');
     // }
   
-    const empLoginCheck=()=>{
-        fetch('http://127.0.0.1:8000/admin/login/?next=/admin/',{
-            empUserName:empUserName,
-            empPassword:empPassword,
-        }).then((response)=>{
-            if(response.data.message){
-                alert(response.data.message);
+    const EmpLoginCheck=(e)=>{
+        e.preventDefault();
+        const body ={
+            email: empUserName,
+            password: empPassword,
+        }
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+              'content-type':'application/json', 
+              
+            }, 
+            body: JSON.stringify(body)
+          }
+        fetch('http://127.0.0.1:8000/api/login/',requestOptions).then(function(response){
+            if(response.status ===200) {
+                console.log(response);
+              return response.json(); 
+            
             }
-            else{
-                alert("welcome");
-                window.location="/login/emp/dash";
+            alert('username and password didnot match'); 
+            return ;
+          }).then((value) => {
+            if(value) {
+              const access_token = value.token.access; 
+              console.log(access_token); 
+              window.location ("/login/emp/dashboard"); 
             }
-        });
+          }).catch((err) => {
+            console.log(err); 
+             
+          }
+          )
+    
     };
 
     return(
@@ -45,7 +67,7 @@ const EmployeeLogin =() => {
                     setempPassword(e.target.value);
                 }}
                 />
-                <button onClick={empLoginCheck}>Submit</button>
+                <button onClick={EmpLoginCheck} type="submit">Submit</button>
             </form>
         </div>
     );

@@ -1,14 +1,16 @@
 import React , { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import logo from "../../image/logo.png";
 import "../../css/Login.css";
+
+// import { func } from "prop-types";
 
 
 const UserLogin = () => {
     const [userUserName , setuserUserName] = useState("");
     const [userPassword , setuserPassword] = useState("");
 
-  //   const navigate= useNavigate();
+    const navigate= useNavigate();
   // const navigatetoregistration = () => {
   //   navigate ("/reg/usr");
   // }
@@ -16,24 +18,49 @@ const UserLogin = () => {
   // const navigatetodashboard = () => {
   //   navigate ("/login/usr/dashboard");
   // }
-    const UserLoginCheck=()=>{
-      fetch('/http://127.0.0.1:8000/admin/login/',{
-        userUserName:userUserName,
-        userPassword:userPassword,
-      }).then((response)=>{
-        if(response.data.message){
-          alert(response.data.message);
+    const UserLoginCheck=(e)=>{
+     
+      e.preventDefault();
+      const body = {
+       email:userUserName,
+     password:userPassword
+      }
+     
+      const requestOptions = {
+        method: 'POST',
+        headers: {
+          'content-type':'application/json', 
+          
+        }, 
+        body: JSON.stringify(body)
+      }
+      fetch('http://127.0.0.1:8000/api/login/',requestOptions).then(function(response){
+        if(response.status ===200) {
+          return response.json(); 
         }
-        else{
-          alert("welcome");
-          window.location='/login/usr/dash';
+        alert('username and password didnot match'); 
+        return ;
+      }).then((value) => {
+        if(value) {
+          const access_token = value.token.access; 
+          localStorage.setItem('token', access_token);
+          console.log(access_token); 
+          navigate('/login/usr/dashboard');
         }
-      });
-    };
-    return(
+      }).catch((err) => {
+        console.log(err); 
+         
+      }
+      )
+  
+        
+}
+
+  
+       return(
         <div className="user-login">
           <h2><u>USER LOGIN</u></h2>
-            <form>
+            <form >
                 <input
                 name="Username"
                 type="text"
@@ -45,14 +72,14 @@ const UserLogin = () => {
                 />
                 <input
                 name="UserPaaword"
-                type="text"
+                type="password"
                 placeholder="Password"
                 onChange={(e) => {
                     setuserPassword(e.target.value)
                 }}
                 required
                 />
-                <button onClick={UserLoginCheck} >Login</button>
+                <button onClick={UserLoginCheck} type = 'submit' >Login</button>
                 </form>
             <h4><a href="/reg/usr">Don't have an account</a></h4>
             {/* <button onClick={userLoginCheck}>Register</button> */}

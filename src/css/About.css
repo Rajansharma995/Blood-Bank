@@ -1,0 +1,14 @@
+.about-us{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+    /* text-align: center; */
+    /* align-self: center; */
+
+}
+p{
+    font-size: 25px;
+ margin-bottom: 2px;
+}
+

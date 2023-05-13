@@ -1,10 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Footer from "./Footer";
 
 import '../../css/Dashboard.css';
+// import  url  from "inspector";
+// import axios from "axios";
+
+const API ="http://127.0.0.1:8000/api/list/";
+
 const Dashboard=()=>{
-    const [bloodTable,setbloodTable]= useState([]);
+    const [bloodTable, setbloodTable] = useState([]);
+    const token = localStorage.getItem('token');
+    console.log(token); 
+    const Home = async (url) => {
+      try {
+        const response = await fetch(url, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+        console.log(response, "response");
+        const data = await response.json(); // Updated to use response.json() instead of response.data
+        if (data?.length > 0) {
+          setbloodTable(data);
+        }
+        console.log(data);
+      } catch (error) {
+        console.log(error, "error");
+      }
+    };
+    
+
+
+    useEffect(()=>{
+            Home(API);
+     },[]);
+
+    
 
     return(
         <div className="dashboard">

@@ -15,15 +15,15 @@ const Navbar = () => {
     // }
     return(
         <div className="nav">
-               <a>
-            <img src={logo} alt="Bloodlogo"/>
+            <a href="/home">
+            <img src={logo} alt="Bloodlogo" height={60} width={60}/>
             </a>
-           
+            <div>
             <a href="/home">HOME</a>
             <a href='/aboutus'>ABOUT US</a>
-            <a href="/giveblood">WHY TO GIVE BLOOD</a>
-            <a href="/dblood">WhO CAN GIVE BLOOD</a>
-            <a href="/">DONATE/REQUEST</a>
+            <a href="/giveblood">WHY TO</a>
+            <a href="/dblood">WhO CAN</a>
+            <a href="/donate">DONATE/REQUEST</a></div>
             <Searchpage />
   
          

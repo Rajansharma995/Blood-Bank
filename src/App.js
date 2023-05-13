@@ -30,7 +30,7 @@ function App(){
       <Routes>
      
       <Route exact path='/home' element={<Dashboard/>}/>
-      <Route exact path='/' element={<Donate/>} />
+      <Route exact path='/donate' element={<Donate/>} />
       <Route exact path ="/login/usr" element={<UserLogin/>} />
       <Route exact path='/login/emp' element={<EmployeeLogin/>}/>
       <Route exact path='/reg/usr' element={<UserRegistration />} />

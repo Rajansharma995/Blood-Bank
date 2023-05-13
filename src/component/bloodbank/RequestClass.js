@@ -7,7 +7,7 @@ export  class RequestClass extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      //number: -1,
+     
       bloodGroup: [],
       req_blood: "A+ve",
       req_unit: 0,
@@ -32,7 +32,7 @@ export  class RequestClass extends Component {
     });
   }
 
-  //
+  
   handleChange = (e) => {
     this.setState({ req_blood: e.target.value }, () => {
       console.log("blood_requested : " + this.state.req_blood);

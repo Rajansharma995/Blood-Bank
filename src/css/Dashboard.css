@@ -1,5 +1,4 @@
 
-
 .dashboard {
     display: flex;
     flex-direction: column;
@@ -20,7 +19,7 @@
     padding-right: 1em;
     color: rgb(51, 17, 11);
   }
-  .blood-table td {
+   .blood-table td {
     font-size: 20px;
     font-family: monospace;
     border: 2px solid black;
@@ -33,9 +32,9 @@
     text-align: center;
     color: rgb(102, 35, 170);
   }
-  
-  .dashboard img{
+   
+  /* .dashboard img{
     width: 70%;
     height: 150px;
     margin-top: 1em;
-  }
+  } */
