@@ -1,0 +1,11 @@
+.give-blood{
+    font-family:cursive;
+    background-image: url("../image/logo.png");
+    background-repeat: no-repeat;
+    background-position:left center;
+    background-size: contain;
+    background-size: 30% 60%;
+}
+.give-blood p{
+    margin-left: 40%;
+}

@@ -19,6 +19,8 @@ import EmployeeRegistration from './component/employee/EmployeeRegistration';
 import EmployeeDashboard from './component/employee/EmployeeDashboard';
 import Aboutus from './component/layout/Aboutus';
 import Giveblood from './component/layout/Giveblood';
+import ForgetPassword from './component/user/ForgatePassword';
+
 // import SearchClass from './component/bloodbank/SearchClass';
 
 function App(){
@@ -42,7 +44,7 @@ function App(){
       <Route exact path='/home/search/blood' element={<Search/>}/>
       <Route exact path='/login/emp/hr' element={<Handelrequest/>}/>
       {/* <Route exact path='/request' element={<RequestClass/>}/> */}
-      {/* <Route exact path='/sclass' element={<SearchClass/>}/> */}
+      <Route exact path='/forgatepassword' element={<ForgetPassword/>}/>
                 <Route exact path='/request' element={<Request/>}/>
         <Route exact path='/aboutus' element={<Aboutus/>}/>
         <Route exact path='/giveblood' element={<Giveblood/>}/>

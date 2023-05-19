@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import '../../css/Search.css';
 
 const Search = () => {
-  const [place, setPlace] = useState("");
-  const [blood, setBlood] = useState("");
+  const [phonenumber, setphonenumber] = useState("");
+  
   const [searchList, setSearchList] = useState([]);
 
   useEffect(() => {
@@ -14,27 +14,20 @@ const Search = () => {
       setSearchList(data);
     };
     fetchData();
-  }, [place, blood]);
+  }, [phonenumber]);
 
   return (
     <div className="search">
       <form>
         <input
-          type="text"
-          placeholder="PLACE"
-          name="place"
+          type="number"
+          placeholder="Phonenumber"
+          name="phonenumber"
           onChange={(e) => {
-            setPlace(e.target.value);
+            setphonenumber(e.target.value);
           }}
         />
-        <input
-          type="text"
-          placeholder="BLOOD GROUP"
-          name="bloodgroup"
-          onChange={(e) => {
-            setBlood(e.target.value);
-          }}
-        />
+       
       </form>
       <table className="blood-table">
         <thead>

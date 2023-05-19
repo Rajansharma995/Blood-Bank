@@ -1,52 +1,57 @@
 .request {
-    font-family: monospace;
-    font-size: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 7rem;
-  }
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.request h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.blood-table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.blood-table th,
+.blood-table td {
+  padding: 10px;
+  text-align: left;
+}
+
+.blood-table th {
+  background-color: #f1ecec;
+}
+
+.request form {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(174, 207, 226);
+  padding: 20px;
+}
+
+.request select,
+.request input[type="text"],
+.request input[type="number"] {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   
-  .request form {
-    display: flex;
-    flex-direction: column
-   
-  }
-  
-  .request input {
-    margin: 1em;
-    width: 200px;
-    height: 50px;
-    outline: none;
-    font-size: 20px;
-    justify-content: center;
-    text-align: center;
-  }
-  .request select {
-    margin-top: 2em;
-    width: 200px;
-    display: flex;
-    justify-content: right;
-    align-self: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    height: 50px;
-    font-size: 30px;
-    text-align: center;
-  }
-  .request button{
-      margin-top: 2em;
-      width: 100px;
-      height: 60px;
-      border-radius: 40px;
-      -webkit-border-radius: 40px;
-      -moz-border-radius: 40px;
-      -ms-border-radius: 40px;
-      -o-border-radius: 40px;
-      outline: none;
-    align-self: center;
-  }
-  .request button:hover{
-      color: white;
-      background: black;
-  }
- 
+}
+
+.request button[type="submit"] {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.request button[type="submit"]:hover {
+  background-color: #0056b3;
+}

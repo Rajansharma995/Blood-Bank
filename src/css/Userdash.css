@@ -3,31 +3,33 @@ p{
      
 }
 
-.user-dash{
+.user-dash  {
     display: flex;
     flex-direction: column;
-    padding-top: 15em;
-
-
-}
-
-.user-dash button{
-    margin: 1em;
-    height: 90px;
-    width: 240px;
-    align-self: center;
-    font-family:monospace;
-    font-size: 20px;
-    border-radius: 90px;
-    -webkit-border-radius: 90px;
-    -moz-border-radius: 90px;
-    -ms-border-radius: 90px;
-    -o-border-radius: 90px;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url("../image/logo.png");
+    background-repeat: no-repeat;
+    background-position:left center;
+    background-size: contain;
+    background-size: 20% auto;
+  }
+  
+  .user-dash button {
+    margin:1em;
+    height:90px;
+    width: 200px;
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+  
+  .user-dash button:hover {
+    background-color: rgb(30, 232, 12);
+    color: rgb(255, 255, 255);
     outline: none;
-    
-}
-.user-dash button:hover{
-    background-color: black;
-    color:white;
-    outline: none;
-}
+  }

@@ -2,6 +2,7 @@ import React , { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import logo from "../../image/logo.png";
 import "../../css/Login.css";
+import ForgetPassword from "./ForgatePassword";
 
 // import { func } from "prop-types";
 
@@ -11,9 +12,9 @@ const UserLogin = () => {
     const [userPassword , setuserPassword] = useState("");
 
     const navigate= useNavigate();
-  // const navigatetoregistration = () => {
-  //   navigate ("/reg/usr");
-  // }
+  const navigatetoforgatepassword = () => {
+    navigate ("/forgatepassword");
+  }
 
   // const navigatetodashboard = () => {
   //   navigate ("/login/usr/dashboard");
@@ -52,9 +53,11 @@ const UserLogin = () => {
          
       }
       )
-  
+    };
         
-}
+
+
+
 
   
        return(
@@ -83,8 +86,10 @@ const UserLogin = () => {
                 </form>
             <h4><a href="/reg/usr">Don't have an account</a></h4>
             {/* <button onClick={userLoginCheck}>Register</button> */}
-         
+            <button onClick={navigatetoforgatepassword}>Forgot Password</button>
+           
         </div>
+        
     );
 }
 

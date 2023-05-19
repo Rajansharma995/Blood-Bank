@@ -1,6 +1,5 @@
 import React from "react";
 // import { useNavigate } from "react-router-dom";
-import logo from "../../image/logo.png";
 import Searchpage from "./Searchpage";
 import "../../css/Navbar.css";
 
@@ -16,7 +15,6 @@ const Navbar = () => {
     return(
         <div className="nav">
             <a href="/home">
-            <img src={logo} alt="Bloodlogo" height={60} width={60}/>
             </a>
             <div>
             <a href="/home">HOME</a>
